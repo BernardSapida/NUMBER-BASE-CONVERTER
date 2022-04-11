@@ -35,7 +35,7 @@ body header hr {
   background-color: rgba(28, 28, 28, 0.066);
 }
 body .container-app {
-  margin: auto;
+  margin: 50px auto;
   width: 95%;
   display: flex;
   justify-content: space-around;
@@ -121,7 +121,7 @@ body .container-app-calculation-wrapper {
   border-radius: 15px;
 }
 body .container-app-calculation-wrapper .table-scroll {
-  max-height: 400px;
+  max-height: 450px;
   position: relative;
   overflow-y: scroll;
 }

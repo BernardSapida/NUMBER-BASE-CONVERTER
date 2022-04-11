@@ -39,7 +39,7 @@ body header hr {
 }
 
 body .container-app {
-  margin: auto;
+  margin: 50px auto;
   width: 95%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -145,7 +145,7 @@ body .container-app-calculation-wrapper {
 }
 
 body .container-app-calculation-wrapper .table-scroll {
-  max-height: 400px;
+  max-height: 450px;
   position: relative;
   overflow-y: scroll;
 }

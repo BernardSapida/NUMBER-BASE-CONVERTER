@@ -39,7 +39,7 @@ body {
   }
 
   & .container-app {
-    margin: auto;
+    margin: 50px auto;
     width: 95%;
     display: flex;
     justify-content: space-around;
@@ -139,7 +139,7 @@ body {
         border-radius: 15px;
         
         & .table-scroll {
-          max-height: 400px;
+          max-height: 450px;
           position: relative;
           overflow-y: scroll;
 

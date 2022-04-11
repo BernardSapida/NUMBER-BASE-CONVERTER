@@ -14,7 +14,7 @@
             <input type="text" placeholder="Enter a number" v-model.trim="formData.number"><br/>
 
             <label for="fromBase">From Base:</label><br/>
-            <select name="fromBase" id="fromBase" v-model.lazy="formData.fromBase">
+            <select name="fromBase" id="fromBase" v-model="formData.fromBase">
               <option value="2">2 (Binary)</option>
               <option value="8">8 (Octal)</option>
               <option value="10">10 (Decimal)</option>
@@ -22,7 +22,7 @@
             </select><br/>
 
             <label for="toBase">From Base:</label><br/>
-            <select name="toBase" id="toBase" v-model.lazy="formData.toBase">
+            <select name="toBase" id="toBase" v-model="formData.toBase">
               <option value="2">2 (Binary)</option>
               <option value="8">8 (Octal)</option>
               <option value="10">10 (Decimal)</option>
@@ -38,9 +38,13 @@
     </div>
     <div class="container-app-calculation">
       <h1>Calculation</h1>
-      <p v-if="formData.isComputed">Base {{formData.fromBase}} ({{formData.fromBaseName}}) to Base {{formData.toBase}} ({{formData.toBaseName}})<br/>Divided by the base to get the digits from the remainders.</p>
+      <p v-if="formData.isComputed">Base {{formData.fromBaseIndependent}} ({{formData.fromBaseName}}) to Base {{formData.toBaseIndependent}} ({{formData.toBaseName}})<br/>Divided by the base to get the digits from the remainders.</p>
       <div class="container-app-calculation-wrapper">
-        <div class="table-scroll">
+        <div v-if="isPower">
+          <h2>Base {{formData.fromBaseIndependent}} ({{formData.fromBaseName}}) to {{formData.toBaseIndependent}} ({{formData.toBaseName}}) calculation:</h2>
+          <p>({{formData.number}})<sub>{{formData.fromBase}}</sub> = {{ formData.powerCalculation.join(" + ") }}</p>
+        </div>
+        <div class="table-scroll" v-if="formData.isTable">
           <table class="table-scroll-content">
             <thead>
               <tr>
@@ -64,9 +68,6 @@
       </div>
     </div>
   </div>
-  <div>
-    {{ JSON.stringify(formData) }}
-  </div>
 </template>
 
 <script>
@@ -77,14 +78,19 @@ export default {
       formData: {
         number: "",
         fromBase: "#",
-        toBase: "#",
+        fromBaseIndependent: "",
         fromBaseName: "",
+        toBase: "#",
+        toBaseIndependent: "",
         toBaseName: "",
+        powerCalculation: [],
         calculation: [
           ["- - -","- - -","- - -"],
           ["- - -","- - -","- - -"],
           ["- - -","- - -","- - -"]
         ],
+        isPower: true,
+        isTable: true,
         isComputed: false,
         result: "- - -"
       }
@@ -92,11 +98,11 @@ export default {
   },
   methods: {
     calculate(e) {
-      alert("Changed");
       e.preventDefault();
 
       // Reset the value
       this.formData.result = "- - -";
+      this.formData.istable = false;
       this.formData.isComputed = false;
       this.formData.calculation = [
         ["- - -","- - -","- - -"],
@@ -117,7 +123,11 @@ export default {
         number = parseInt(number, 2);
         
         if(toBase == 8) this.formData.result = number.toString(8) + " (Base 8)";
-        if(toBase == 10) this.formData.result = number + " (Base 10)";
+        if(toBase == 10) {
+          this.handlePowerCalculation(number.toString(2), fromBase);
+          this.formData.result = number + " (Base 10)";
+          return 0;
+        }
         if(toBase == 16) this.formData.result = number.toString(16).toUpperCase() + " (Base 16)";
 
         this.handleCalculation(number, toBase);
@@ -174,6 +184,10 @@ export default {
       if(fromBase == 16) this.formData.fromBaseName = "Hexadecimal";
       if(toBase == 16) this.formData.toBaseName = "Hexadecimal";
 
+      this.formData.fromBaseIndependent = fromBase;
+      this.formData.toBaseIndependent = toBase;
+
+      this.formData.isTable = true;
       this.formData.isComputed = true;
     },
     handleCalculation(number, toBase) {
@@ -182,6 +196,15 @@ export default {
         this.formData.calculation.push([number+"/"+toBase, (Math.floor(number/toBase)), ((number/toBase)-Math.floor(number/toBase))*toBase]);
         number = Math.floor(number/toBase);
       }
+    },
+    handlePowerCalculation(number, fromBase) {
+      let exponent;
+      if(fromBase == 2) exponent = "²";
+      if(fromBase == 8) exponent = "²";
+      if(fromBase == 10) exponent = "²";
+      if(fromBase == 16) exponent = "²";
+      number.split("").forEach((v) => this.formData.powerCalculation.push("("+v+" x "+fromBase+exponent+")"));
+      console.table(this.formData.powerCalculation);
     }
   }
 }
