@@ -19,9 +19,9 @@
                         </tr>
                     </tbody>
                 </table>
+                <br/>
             </div>
-            <br/><br/>
-            <h2 class="title" v-if="isTable">{{fromBaseName}} to {{toBaseName}}</h2>
+            <h2 class="title" v-if="isComputed">{{fromBaseName}} to {{toBaseName}}</h2>
             <div class="table-scroll" v-if="isTable">
                 <table class="table-scroll-content">
                     <thead>

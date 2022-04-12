@@ -35,6 +35,10 @@ body .darkTheme {
   color: white;
   transition: all 450ms ease-in-out;
 }
+body .darkTheme div div .label {
+  margin-bottom: 10px;
+  color: #1c1c1c !important;
+}
 body .darkTheme header {
   box-shadow: 0px 5px 5px rgba(255, 255, 255, 0.059);
   transition: all 450ms ease-in-out;

@@ -1,6 +1,6 @@
 <template>
     <footer>
-        <p>Copyright &copy; 2020 Number Base Converter by Bernard Sapida</p>
+        <p>Copyright &copy; 2022 Number Base Converter by Bernard Sapida</p>
     </footer>
 </template>
 

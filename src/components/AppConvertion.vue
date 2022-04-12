@@ -6,10 +6,10 @@
       <div class="container-app-convertion-form">
         <form @submit="calculate">
           <div class="container-app-convertion-form-wrapper">
-            <label for="number">Enter Number:</label><br/>
+            <label class="label" for="number">Enter Number:</label><br/>
             <input type="text" v-model.trim="formData.number" placeholder="Enter a number"><br/>
 
-            <label for="fromBase">From Base:</label><br/>
+            <label class="label" for="fromBase">From Base:</label><br/>
             <select name="fromBase" id="fromBase" v-model="formData.fromBase">
               <option value="">-- From Base --</option>
               <option value="2">2 (Binary)</option>
@@ -18,7 +18,7 @@
               <option value="16">16 (Hexadecimal)</option>
             </select><br/>
 
-            <label for="toBase">To Base:</label><br/>
+            <label class="label" for="toBase">To Base:</label><br/>
             <select name="toBase" id="toBase" v-model="formData.toBase">
               <option value="">-- To Base --</option>
               <option value="2">2 (Binary)</option>
