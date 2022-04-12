@@ -6,7 +6,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
 }
 
 ::-webkit-scrollbar-track {
@@ -15,7 +15,7 @@
  
 ::-webkit-scrollbar-thumb {
   background: #888; 
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -23,12 +23,14 @@
 }
 
 body {
-  background-color: hsl(0, 0%, 98%);
-  font-size: 16px;
+  // background-color: hsl(0, 0%, 98%);
+  background-color: hsl(0, 0%, 18%);
+  font-size: 1.2rem;
 
   & header {
     & h1 {
       padding: 20px 20px;
+      font-size: 1.4rem;
     }
   
     & hr {
@@ -39,46 +41,56 @@ body {
   }
 
   & .container-app {
+    background: red;
     margin: 50px auto;
     width: 95%;
     display: flex;
     justify-content: space-around;
   
     &-convertion {
-      margin: 0 15px;
-      height: 935px;
-      max-width: 705px;
+      margin: 0 15px 40px 15px;
       width: 100%;
-  
+      
+      & h1 {
+        font-size: 2rem;
+      }
+
+      & p {
+        font-size: 1.2rem;
+      }
+
       & h1, & p {
         line-height: 2;
         text-align: center;
       }
   
       &-form {
-        margin: 30px 0;
+        margin: 30px auto;
+        max-width: 705px;
+        width: 100%;
         padding: 30px;
         background-color: hsl(0, 0%, 100%);
         border-radius: 15px;
   
         &-wrapper {
+          padding: 25px 0;
           margin: auto;
           max-width: 607px;
           width: 100%;
   
           & label {
             text-align: right !important;
-            font-size: 20px;
+            font-size: 1.2rem;
           }
     
           & input[type="text"], & select {
             margin-bottom: 20px;
             padding: 0 20px;
             width: 100%;
-            height: 56px;
+            height: 40px;
             border: 2px solid hsla(0, 0%, 11%, 0.747);
             border-radius: 5px;
-            font-size: 20px;
+            font-size: 1.2rem;
   
             &:focus {
               border: 2px solid hsl(0, 0%, 0%) !important;
@@ -88,12 +100,12 @@ body {
   
           & button {
             margin-bottom: 20px;
-            padding: 15px 0;
+            padding: 10px 0;
             display: block;
             width: 100%;
             border: none;
             border-radius: 5px;
-            font-size: 20px;
+            font-size: 1rem;
             font-weight: bolder;
             color:hsl(0, 0%, 100%);
             cursor: pointer;
@@ -126,6 +138,19 @@ body {
       }
     }
 
+    & h1 {
+      font-size: 2rem;
+    }
+
+    & p {
+      font-size: 1.2rem;
+    }
+
+    & h1, & p {
+      line-height: 2;
+      text-align: center;
+    }
+
     &-calculation {
       margin: 0 15px;
       height: 935px;
@@ -133,15 +158,21 @@ body {
       width: 100%;
 
       &-wrapper {
-        margin: 30px 0;
-        padding: 30px;
+        margin: 25px 0;
+        padding: 0 30px 30px;
         background-color: hsl(0, 0%, 100%);
         border-radius: 15px;
+
+        & .title {
+          padding: 5px 0;
+          text-align: center;
+        }
         
         & .table-scroll {
           max-height: 450px;
           position: relative;
           overflow-y: scroll;
+          overflow-x: hidden;
 
           &-content {
             width: 100%;
@@ -164,8 +195,12 @@ body {
               & tr:nth-child(even) {
                 background: hsl(0, 0%, 94%);
               }
+
+              & tr {
+                border: 1px solid hsla(0, 0%, 11%, 0.185);
+              }
     
-              & tr:last-child {
+              & tr.result {
                 position: sticky;
                 bottom: -1px;
                 left: 0;
@@ -177,11 +212,29 @@ body {
         }
       }
     }
+  }
+}
 
-    & h1, & p {
-      line-height: 2;
-      text-align: center;
+@media screen and (max-width: 960px) {
+  body {
+    & header {
+      & h1 {
+        font-size: 1.2rem;
+      }
+
+    }
+
+    & .container-app {
+      flex-direction: column;
+
+      &-convertion, &-calculation { 
+        & h1 {
+          font-size: 1.7rem;
+        }
+        & p {
+          font-size: 1rem;
+        }
+      }
     }
   }
-
 }

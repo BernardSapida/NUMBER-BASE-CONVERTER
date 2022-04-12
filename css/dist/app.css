@@ -6,7 +6,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
+  width: 3px;
 }
 
 ::-webkit-scrollbar-track {
@@ -15,7 +15,7 @@
 
 ::-webkit-scrollbar-thumb {
   background: #888;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -23,11 +23,12 @@
 }
 
 body {
-  background-color: #fafafa;
-  font-size: 16px;
+  background-color: #2e2e2e;
+  font-size: 1.2rem;
 }
 body header h1 {
   padding: 20px 20px;
+  font-size: 1.4rem;
 }
 body header hr {
   border: none;
@@ -35,44 +36,52 @@ body header hr {
   background-color: rgba(28, 28, 28, 0.066);
 }
 body .container-app {
+  background: red;
   margin: 50px auto;
   width: 95%;
   display: flex;
   justify-content: space-around;
 }
 body .container-app-convertion {
-  margin: 0 15px;
-  height: 935px;
-  max-width: 705px;
+  margin: 0 15px 40px 15px;
   width: 100%;
+}
+body .container-app-convertion h1 {
+  font-size: 2rem;
+}
+body .container-app-convertion p {
+  font-size: 1.2rem;
 }
 body .container-app-convertion h1, body .container-app-convertion p {
   line-height: 2;
   text-align: center;
 }
 body .container-app-convertion-form {
-  margin: 30px 0;
+  margin: 30px auto;
+  max-width: 705px;
+  width: 100%;
   padding: 30px;
   background-color: white;
   border-radius: 15px;
 }
 body .container-app-convertion-form-wrapper {
+  padding: 25px 0;
   margin: auto;
   max-width: 607px;
   width: 100%;
 }
 body .container-app-convertion-form-wrapper label {
   text-align: right !important;
-  font-size: 20px;
+  font-size: 1.2rem;
 }
 body .container-app-convertion-form-wrapper input[type=text], body .container-app-convertion-form-wrapper select {
   margin-bottom: 20px;
   padding: 0 20px;
   width: 100%;
-  height: 56px;
+  height: 40px;
   border: 2px solid rgba(28, 28, 28, 0.747);
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 1.2rem;
 }
 body .container-app-convertion-form-wrapper input[type=text]:focus, body .container-app-convertion-form-wrapper select:focus {
   border: 2px solid black !important;
@@ -80,12 +89,12 @@ body .container-app-convertion-form-wrapper input[type=text]:focus, body .contai
 }
 body .container-app-convertion-form-wrapper button {
   margin-bottom: 20px;
-  padding: 15px 0;
+  padding: 10px 0;
   display: block;
   width: 100%;
   border: none;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 1rem;
   font-weight: bolder;
   color: white;
   cursor: pointer;
@@ -108,6 +117,16 @@ body .container-app-convertion-form-wrapper .reset {
 body .container-app-convertion-form-wrapper .reset:hover {
   background: #292929;
 }
+body .container-app h1 {
+  font-size: 2rem;
+}
+body .container-app p {
+  font-size: 1.2rem;
+}
+body .container-app h1, body .container-app p {
+  line-height: 2;
+  text-align: center;
+}
 body .container-app-calculation {
   margin: 0 15px;
   height: 935px;
@@ -115,15 +134,20 @@ body .container-app-calculation {
   width: 100%;
 }
 body .container-app-calculation-wrapper {
-  margin: 30px 0;
-  padding: 30px;
+  margin: 25px 0;
+  padding: 0 30px 30px;
   background-color: white;
   border-radius: 15px;
+}
+body .container-app-calculation-wrapper .title {
+  padding: 5px 0;
+  text-align: center;
 }
 body .container-app-calculation-wrapper .table-scroll {
   max-height: 450px;
   position: relative;
   overflow-y: scroll;
+  overflow-x: hidden;
 }
 body .container-app-calculation-wrapper .table-scroll-content {
   width: 100%;
@@ -143,14 +167,28 @@ body .container-app-calculation-wrapper .table-scroll-content thead {
 body .container-app-calculation-wrapper .table-scroll-content tbody tr:nth-child(even) {
   background: #f0f0f0;
 }
-body .container-app-calculation-wrapper .table-scroll-content tbody tr:last-child {
+body .container-app-calculation-wrapper .table-scroll-content tbody tr {
+  border: 1px solid rgba(28, 28, 28, 0.185);
+}
+body .container-app-calculation-wrapper .table-scroll-content tbody tr.result {
   position: sticky;
   bottom: -1px;
   left: 0;
   background: #1c1c1c;
   color: white;
 }
-body .container-app h1, body .container-app p {
-  line-height: 2;
-  text-align: center;
+
+@media screen and (max-width: 960px) {
+  body header h1 {
+    font-size: 1.2rem;
+  }
+  body .container-app {
+    flex-direction: column;
+  }
+  body .container-app-convertion h1, body .container-app-calculation h1 {
+    font-size: 1.7rem;
+  }
+  body .container-app-convertion p, body .container-app-calculation p {
+    font-size: 1rem;
+  }
 }
