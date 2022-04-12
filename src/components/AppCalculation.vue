@@ -21,7 +21,7 @@
                 </table>
                 <br/>
             </div>
-            <h2 class="title" v-if="isComputed">{{fromBaseName}} to {{toBaseName}}</h2>
+            <h2 class="title" v-if="isComputed && isTable">{{fromBaseName}} to {{toBaseName}}</h2>
             <div class="table-scroll" v-if="isTable">
                 <table class="table-scroll-content">
                     <thead>
