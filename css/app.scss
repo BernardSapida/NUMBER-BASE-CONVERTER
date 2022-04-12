@@ -6,7 +6,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -14,61 +14,110 @@
 }
  
 ::-webkit-scrollbar-thumb {
-  background: #888; 
+  background: hsl(0, 0%, 11%); 
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: hsl(0, 0%, 16%); 
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  // background-color: hsl(0, 0%, 98%);
-  background-color: hsl(0, 0%, 18%);
+  background-color: hsl(0, 0%, 98%);
   font-size: 1.2rem;
 
+  & .darkTheme {
+    background: hsl(0, 0%, 11%); 
+    color: hsl(0, 0%, 100%);
+    transition: all 450ms ease-in-out;
+
+    & header {
+      box-shadow: 0px 5px 5px hsla(0, 0%, 100%, 0.059);
+      transition: all 450ms ease-in-out;
+
+      & .moon {
+        color: hsl(0, 0%, 100%);
+        transition: all 450ms ease-in-out;
+
+        &:hover {
+          color: hsl(0, 0%, 80%);
+        }
+      }
+    }
+
+    & h1, & p {
+      color: hsl(0, 0%, 100%);
+      transition: all 450ms ease-in-out;
+    }
+
+    & footer {
+      box-shadow: 0px -5px 5px hsla(0, 0%, 100%, 0.059);
+    }
+  }
+
   & header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
     & h1 {
       padding: 20px 20px;
       font-size: 1.4rem;
     }
-  
-    & hr {
-      border: none;
-      height: 1px;
-      background-color: hsla(0, 0%, 11%, 0.066);
+
+    .moon {
+      padding: 15px 15px;
+      font-size: 2rem;
+      color: hsl(0, 0%, 11%);
+      cursor: pointer;
+      
+      &:hover {
+        color: hsl(0, 0%, 21%);
+      }
     }
   }
 
+  & hr {
+    border: none;
+    height: 1px;
+    background-color: hsla(0, 0%, 11%, 0.066);
+  }
+
   & .container-app {
-    background: red;
+    padding: 20px;
     margin: 50px auto;
+    max-width: 1450px;
     width: 95%;
-    display: flex;
     justify-content: space-around;
   
     &-convertion {
-      margin: 0 15px 40px 15px;
+      margin: auto;
+      margin-top: 0;
+      max-width: 705px;
       width: 100%;
       
       & h1 {
         font-size: 2rem;
       }
 
-      & p {
-        font-size: 1.2rem;
-      }
-
       & h1, & p {
         line-height: 2;
         text-align: center;
       }
+
+      & p {
+        font-size: 1.2rem;
+      }
   
       &-form {
-        margin: 30px auto;
+        padding: 0 20px;
+        margin: auto;
         max-width: 705px;
-        width: 100%;
-        padding: 30px;
+        width: 98%;
         background-color: hsl(0, 0%, 100%);
         border-radius: 15px;
   
@@ -152,14 +201,14 @@ body {
     }
 
     &-calculation {
-      margin: 0 15px;
-      height: 935px;
+      margin: auto;
+      margin-top: 0;
       max-width: 705px;
       width: 100%;
 
       &-wrapper {
         margin: 25px 0;
-        padding: 0 30px 30px;
+        padding: 30px;
         background-color: hsl(0, 0%, 100%);
         border-radius: 15px;
 
@@ -169,10 +218,13 @@ body {
         }
         
         & .table-scroll {
-          max-height: 450px;
           position: relative;
+          max-height: 450px;
           overflow-y: scroll;
-          overflow-x: hidden;
+
+          &::-webkit-scrollbar {
+            height: 10px;
+          }
 
           &-content {
             width: 100%;
@@ -197,7 +249,12 @@ body {
               }
 
               & tr {
-                border: 1px solid hsla(0, 0%, 11%, 0.185);
+                border-bottom: 1px solid hsla(0, 0%, 11%, 0.185);
+                border-left: 2px solid hsla(0, 0%, 11%, 0.185);
+
+                & td {
+                  border-left: 1px solid hsla(0, 0%, 11%, 0.185);
+                }
               }
     
               & tr.result {
@@ -215,6 +272,15 @@ body {
   }
 }
 
+footer {
+  & p {
+    padding: 20px;
+    background: hsl(0, 0%, 11%);
+    color: hsl(0, 0%, 100%);
+    text-align: center;
+  }
+}
+
 @media screen and (max-width: 960px) {
   body {
     & header {
@@ -225,8 +291,6 @@ body {
     }
 
     & .container-app {
-      flex-direction: column;
-
       &-convertion, &-calculation { 
         & h1 {
           font-size: 1.7rem;
@@ -235,6 +299,24 @@ body {
           font-size: 1rem;
         }
       }
+
+      // &-calculation {
+      //   &-wrapper {
+      //     & .table-scroll {
+      //       overflow-x: scroll;
+      //     }
+      //   }
+      // }
+    }
+  }
+
+  footer {
+    & p {
+      padding: 20px;
+      background: hsl(0, 0%, 11%);
+      color: hsl(0, 0%, 100%);
+      text-align: center;
+      font-size: .6rem;
     }
   }
 }

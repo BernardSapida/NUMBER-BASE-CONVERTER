@@ -1,5 +1,5 @@
 <template>
-    <div class="container-app-calculation">
+    <div class="container-app-calculation" id="result">
         <h1>Calculation</h1>
         <p v-if="isComputed">Base {{fromBaseIndependent}} ({{fromBaseName}}) to Base {{toBaseIndependent}} ({{toBaseName}})<br/>Divided by the base to get the digits from the remainders.</p>
         <div class="container-app-calculation-wrapper">
@@ -15,14 +15,14 @@
                             <td>({{numberIndependent}})<sub>{{fromBaseIndependent}}</sub> = <span v-html="powerCalculation.join(' + ')"></span></td>
                         </tr>
                         <tr class="result">
-                            <td><strong>Result:</strong> {{toDecimal}}</td>
+                            <td><strong>Result:</strong> {{toDecimal}} (Base 10)</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <br/>
-            <h2 class="title" v-if="isComputed">{{fromBaseName}} to {{toBaseName}}</h2>
             <div class="table-scroll" v-if="isTable">
+                <h2 class="title" v-if="isComputed">{{fromBaseName}} to {{toBaseName}}</h2>
                 <table class="table-scroll-content">
                     <thead>
                     <tr>
@@ -38,7 +38,7 @@
                         <td>{{eachCalculation[2]}}</td>
                     </tr>
                     <tr class="result">
-                        <td colspan="3"><strong>Result:</strong> {{result}}</td>
+                        <td colspan="3"><strong>Result:</strong> {{result}} (Base {{toBase}})</td>
                     </tr>
                     </tbody>
                 </table>

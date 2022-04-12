@@ -7,7 +7,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 3px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
@@ -15,17 +15,68 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: #1c1c1c;
   border-radius: 10px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: #292929;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background-color: #2e2e2e;
+  background-color: #fafafa;
   font-size: 1.2rem;
+}
+
+body .darkTheme {
+  background: #1c1c1c;
+  color: white;
+  -webkit-transition: all 450ms ease-in-out;
+  transition: all 450ms ease-in-out;
+}
+
+body .darkTheme header {
+  -webkit-box-shadow: 0px 5px 5px rgba(255, 255, 255, 0.059);
+          box-shadow: 0px 5px 5px rgba(255, 255, 255, 0.059);
+  -webkit-transition: all 450ms ease-in-out;
+  transition: all 450ms ease-in-out;
+}
+
+body .darkTheme header .moon {
+  color: white;
+  -webkit-transition: all 450ms ease-in-out;
+  transition: all 450ms ease-in-out;
+}
+
+body .darkTheme header .moon:hover {
+  color: #cccccc;
+}
+
+body .darkTheme h1, body .darkTheme p {
+  color: white;
+  -webkit-transition: all 450ms ease-in-out;
+  transition: all 450ms ease-in-out;
+}
+
+body .darkTheme footer {
+  -webkit-box-shadow: 0px -5px 5px rgba(255, 255, 255, 0.059);
+          box-shadow: 0px -5px 5px rgba(255, 255, 255, 0.059);
+}
+
+body header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 body header h1 {
@@ -33,25 +84,36 @@ body header h1 {
   font-size: 1.4rem;
 }
 
-body header hr {
+body header .moon {
+  padding: 15px 15px;
+  font-size: 2rem;
+  color: #1c1c1c;
+  cursor: pointer;
+}
+
+body header .moon:hover {
+  color: #363636;
+}
+
+body hr {
   border: none;
   height: 1px;
   background-color: rgba(28, 28, 28, 0.066);
 }
 
 body .container-app {
-  background: red;
+  padding: 20px;
   margin: 50px auto;
+  max-width: 1450px;
   width: 95%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
 }
 
 body .container-app-convertion {
-  margin: 0 15px 40px 15px;
+  margin: auto;
+  margin-top: 0;
+  max-width: 705px;
   width: 100%;
 }
 
@@ -59,20 +121,20 @@ body .container-app-convertion h1 {
   font-size: 2rem;
 }
 
-body .container-app-convertion p {
-  font-size: 1.2rem;
-}
-
 body .container-app-convertion h1, body .container-app-convertion p {
   line-height: 2;
   text-align: center;
 }
 
+body .container-app-convertion p {
+  font-size: 1.2rem;
+}
+
 body .container-app-convertion-form {
-  margin: 30px auto;
+  padding: 0 20px;
+  margin: auto;
   max-width: 705px;
-  width: 100%;
-  padding: 30px;
+  width: 98%;
   background-color: white;
   border-radius: 15px;
 }
@@ -155,15 +217,15 @@ body .container-app h1, body .container-app p {
 }
 
 body .container-app-calculation {
-  margin: 0 15px;
-  height: 935px;
+  margin: auto;
+  margin-top: 0;
   max-width: 705px;
   width: 100%;
 }
 
 body .container-app-calculation-wrapper {
   margin: 25px 0;
-  padding: 0 30px 30px;
+  padding: 30px;
   background-color: white;
   border-radius: 15px;
 }
@@ -174,10 +236,13 @@ body .container-app-calculation-wrapper .title {
 }
 
 body .container-app-calculation-wrapper .table-scroll {
-  max-height: 450px;
   position: relative;
+  max-height: 450px;
   overflow-y: scroll;
-  overflow-x: hidden;
+}
+
+body .container-app-calculation-wrapper .table-scroll::-webkit-scrollbar {
+  height: 10px;
 }
 
 body .container-app-calculation-wrapper .table-scroll-content {
@@ -204,7 +269,12 @@ body .container-app-calculation-wrapper .table-scroll-content tbody tr:nth-child
 }
 
 body .container-app-calculation-wrapper .table-scroll-content tbody tr {
-  border: 1px solid rgba(28, 28, 28, 0.185);
+  border-bottom: 1px solid rgba(28, 28, 28, 0.185);
+  border-left: 2px solid rgba(28, 28, 28, 0.185);
+}
+
+body .container-app-calculation-wrapper .table-scroll-content tbody tr td {
+  border-left: 1px solid rgba(28, 28, 28, 0.185);
 }
 
 body .container-app-calculation-wrapper .table-scroll-content tbody tr.result {
@@ -216,21 +286,29 @@ body .container-app-calculation-wrapper .table-scroll-content tbody tr.result {
   color: white;
 }
 
+footer p {
+  padding: 20px;
+  background: #1c1c1c;
+  color: white;
+  text-align: center;
+}
+
 @media screen and (max-width: 960px) {
   body header h1 {
     font-size: 1.2rem;
-  }
-  body .container-app {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
   }
   body .container-app-convertion h1, body .container-app-calculation h1 {
     font-size: 1.7rem;
   }
   body .container-app-convertion p, body .container-app-calculation p {
     font-size: 1rem;
+  }
+  footer p {
+    padding: 20px;
+    background: #1c1c1c;
+    color: white;
+    text-align: center;
+    font-size: .6rem;
   }
 }
 /*# sourceMappingURL=app.css.map */
