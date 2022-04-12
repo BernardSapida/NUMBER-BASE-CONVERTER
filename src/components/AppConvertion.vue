@@ -224,7 +224,7 @@ export default {
       this.handleCalculation(number, toBase);
     },
     handleHexadecimal(number, fromBase, toBase) {
-      if (/^[0-9]+$/i.test(number) == false) return 0;
+      if (/^[0-9A-z]+$/i.test(number) == false) return 0;
 
       // Convert Hexadecimal String to Number
       number = parseInt(number, 16);
@@ -243,6 +243,7 @@ export default {
 
       // Convert Hexadecimal to Hexadecimal
       if(toBase == 16) {
+        number = number.toString(16);
         this.formData.result = number.toString(16);
         this.formData.isTable = false;
       }
@@ -262,7 +263,8 @@ export default {
     },
     handlePowerCalculation(number, fromBase) {
       this.formData.powerCalculation = [];
-      number.split("").forEach((v,i,arr)=>this.formData.powerCalculation.push("("+v+" x "+fromBase+"<sup>"+(arr.length-i-1)+"</sup>)"));
+
+      number.split("").forEach((v,i,arr)=>this.formData.powerCalculation.push("("+(fromBase == 16 ? parseInt(v, 16) : v)+" x "+fromBase+"<sup>"+(arr.length-i-1)+"</sup>)"));
     }
   }
 }
@@ -271,3 +273,7 @@ export default {
 <style>
 
 </style>
+
+/*
+AF12391713231
+*/
