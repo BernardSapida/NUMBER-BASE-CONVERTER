@@ -20,16 +20,16 @@
                     </tbody>
                 </table>
             </div>
-            <br/>
+            <br/><br/>
+            <h2 class="title" v-if="isTable">{{fromBaseName}} to {{toBaseName}}</h2>
             <div class="table-scroll" v-if="isTable">
-                <h2 class="title" v-if="isComputed">{{fromBaseName}} to {{toBaseName}}</h2>
                 <table class="table-scroll-content">
                     <thead>
-                    <tr>
-                        <td>Division</td>
-                        <td>Quotient</td>
-                        <td>Remainder</td>
-                    </tr>
+                        <tr>
+                            <td>Division</td>
+                            <td>Quotient</td>
+                            <td>Remainder</td>
+                        </tr>
                     </thead>
                     <tbody>
                     <tr v-for="eachCalculation in calculation" :key="eachCalculation">

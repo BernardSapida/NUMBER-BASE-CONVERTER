@@ -50,6 +50,16 @@ body .darkTheme h1, body .darkTheme p {
   color: white;
   transition: all 450ms ease-in-out;
 }
+body .darkTheme .title {
+  margin-bottom: 10px;
+  color: #1c1c1c;
+}
+body .darkTheme table thead tr td:nth-child(1) {
+  color: white;
+}
+body .darkTheme table tbody {
+  color: #1c1c1c;
+}
 body .darkTheme footer {
   box-shadow: 0px -5px 5px rgba(255, 255, 255, 0.059);
 }
@@ -57,6 +67,7 @@ body header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  animation: all 2s ease;
 }
 body header h1 {
   padding: 20px 20px;
@@ -91,17 +102,14 @@ body .container-app-convertion {
 }
 body .container-app-convertion h1 {
   font-size: 2rem;
-}
-body .container-app-convertion h1, body .container-app-convertion p {
-  line-height: 2;
-  text-align: center;
+  padding: 0;
 }
 body .container-app-convertion p {
   font-size: 1.2rem;
 }
 body .container-app-convertion-form {
   padding: 0 20px;
-  margin: auto;
+  margin: 10px auto;
   max-width: 705px;
   width: 98%;
   background-color: white;
@@ -171,19 +179,17 @@ body .container-app h1, body .container-app p {
   text-align: center;
 }
 body .container-app-calculation {
-  margin: auto;
-  margin-top: 0;
+  margin: 50px auto;
   max-width: 705px;
   width: 100%;
 }
 body .container-app-calculation-wrapper {
   margin: 25px 0;
-  padding: 30px;
+  padding: 40px 30px 40px 30px;
   background-color: white;
   border-radius: 15px;
 }
 body .container-app-calculation-wrapper .title {
-  padding: 5px 0;
   text-align: center;
 }
 body .container-app-calculation-wrapper .table-scroll {
